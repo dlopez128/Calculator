@@ -3,12 +3,10 @@
 int main()
 {
 	// Variables and initialization 
-	int a, b, result;
+	int a = 5, b = 2, result;
 	char operator;
 
 	// User types in expression. 
-	printf("\nEnter two operands: \n");
-	scanf_s("%d %d", &a, &b);
 	printf("\nEnter an operator: \n");
 	scanf_s("%c", &operator);
 
