@@ -5,28 +5,41 @@ int main()
 	// Variables and initialization 
 	int a, b;
 	char operator;
+	int finished = 0;
 
 	// User types in expression. 
-	printf("Enter two operands: ");
+	printf("\nEnter two operands: \n");
 	scanf_s("%d %d", &a, &b);
-	printf("Enter an operator (+, -, *, /): ");
-	scanf_s("%c", &operator);
 
 	// Print Results
 	switch (operator) {
 	case '+':
-		printf("%d", a + b);
-		break;
-	case '-':
-		printf("%d", a - b);
-		break;
-	case '*':
-		printf("%d", a * b);
-		break;
-	case '/':
-		printf("%d", a / b);
+		printf("%d\n", a + b);
 		break;
 
+	case '-':
+		printf("%d\n", a - b);
+		break;
+
+	case '*':
+		printf("%d\n", a * b);
+		break;
+
+	case '/':
+		printf("%d\n", a / b);
+		break;
+
+	}
+
+	while (!finished)
+	{
+		printf("\nEnter an operator: \n");
+		scanf_s("%c", &operator);
+		getchar();
+		printf("\nEnter two operands: \n");
+		scanf_s("%d %d", &a, &b);
+
+		getchar();
 	}
 
 	return 0;
