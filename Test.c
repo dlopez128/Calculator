@@ -6,31 +6,31 @@ int main()
 	int a = 5, b = 2, result;
 	char operator;
 
-	// User types in expression. 
-	printf("\nEnter an operator: \n");
-	scanf_s("%c", &operator);
+	do {
+		printf("\nEnter an operator: ");
+		scanf_s("%c", &operator);
 
-	// Print Results
-	switch (operator) {
-	
-	case '+':
-		printf("result = %d", a + b);
-		break;
+		switch (operator) {
+		case '+':
+			printf("result = %d", a + b);
+			break;
 
-	case '-':
-		printf("result = %d", a - b);
-		break;
+		case '-':
+			printf("result = %d", a - b);
+			break;
 
-	case '*':
-		printf("result = %d", a * b);
-		break;
+		case '*':
+			printf("result = %d", a * b);
+			break;
 
-	case '/':
-		printf("result = %d", a / b);
-		break;
-
+		case '/':
+			printf("result = %d", a / b);
+			break;
+		}
 	}
 
-	return 0;
+	while (operator != 1); 
+	
+	return 0; 
 
 }
