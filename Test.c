@@ -3,7 +3,7 @@
 int main()
 {
 	// Variables and initialization 
-	int a, b;
+	int a, b, result;
 	char operator;
 
 	// User types in expression. 
@@ -16,19 +16,19 @@ int main()
 	switch (operator) {
 	
 	case '+':
-		printf("%d + %d = %d", a, b, a + b);
+		printf("result = %d", a + b);
 		break;
 
 	case '-':
-		printf("%d - %d = %d", a, b, a - b);
+		printf("result = %d", a - b);
 		break;
 
 	case '*':
-		printf("%d * %d = %d", a, b, a * b);
+		printf("result = %d", a * b);
 		break;
 
 	case '/':
-		printf("%d / %d = %d", a, b, a / b);
+		printf("result = %d", a / b);
 		break;
 
 	}
