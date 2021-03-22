@@ -13,7 +13,7 @@ int main()
 
 	// Do While Loop
 	do {
-		printf("\nEnter an operator: ");
+		printf("\nEnter an operator: \n");
 		printf("Exit\n");
 
 		scanf_s("%c", &operator);
@@ -21,23 +21,23 @@ int main()
 
 		switch (operator) {
 		case '+':
-			printf("result = %d", a + b);
+			printf("result = %d\n", a + b);
 			break;
 
 		case '-':
-			printf("result = %d", a - b);
+			printf("result = %d\n", a - b);
 			break;
 
 		case '*':
-			printf("result = %d", a * b);
+			printf("result = %d\n", a * b);
 			break;
 
 		case '/':
-			printf("result = %d", a / b);
+			printf("result = %d\n", a / b);
 			break;
 
 		case '5':
-			printf("Thanks");
+			printf("Thanks\n");
 			break; 
 
 		}
