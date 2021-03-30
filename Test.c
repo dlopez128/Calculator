@@ -10,7 +10,7 @@
 int main()
 {
 	// Variales and Initialization
-	int a, b, operatorselection, result;
+	int a, b;
 	printf("Enter Two Numbers: \n");
 	printf("a = ");
 	scanf_s("%d", &a);
@@ -22,8 +22,8 @@ int main()
 
 	do
 	{
-		void menu(int a, int b, int operatorselection);
-		calc(int a, int b, result);
+		int menu(int a, int b, int operatorselection);
+		int calc(int a, int b);
 		printf("Again? No, enter 5 for exit!\n");
 		scanf_s("%d", &ans);
 	} while (ans == 1);
@@ -32,7 +32,7 @@ int main()
 }
 
 // Function for Displaying the Menu
-void menu(int a, int b, int operatorselection)
+int menu(int a, int b, int operatorselection)
 {
 	printf("\n1. Addition\n");
 	printf("2. Subtraction\n");
@@ -45,27 +45,29 @@ void menu(int a, int b, int operatorselection)
 }
 
 // Function for Calculating Results 
-int calc(int a, int b, result)
+int calc(int a, int b)
 {
+	int operatorselection = 2, result; 
+
 	// Switch Statement
-	switch (operationselection) {
-		Case 1:
+	switch (operatorselection) {
+		case 1:
 		result = a + b;
 		printf("%d\n", result);
 		break;
-		Case 2:
+		case 2:
 		result = a - b;
 		printf("%d\n", result);
 		break;
-		Case 3:
+		case 3:
 		result = a * b;
 		printf("%d\n", result);
 		break;
-		Case 4:
+		case 4:
 		result = a / b;
 		printf("%d\n", result);
 		break;
-		Case 5:
+		case 5:
 		printf("End, Thank You!\n");
 		exit(0);
 	}
