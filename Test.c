@@ -1,79 +1,75 @@
-// This code includes a Do While Loop and decision. 
-// Included function. 
-// Didn't add division error. 
-// No pointer or array. 
+// Includes a do while Loop. 
+// Includes function. 
+// Includes array and function pointer. 
 
 #include <stdio.h>
-#include <stdlib.h>
+
+int sum(int num1, int num2);
+int sub(int num1, int num2);
+int mult(int num1, int num2);
+int div(int num1, int num2);
 
 // Function for Displaying the Menu
-// Function changed to void because they don't need to return anything
 void menu()
 {
-	printf("\n1. Addition\n"); 
-	printf("2. Subtraction\n");
-	printf("3. Multiplication\n");
-	printf("4. Division\n");
-	printf("5. Exit\n");
+	printf("\n0. Addition\n");
+	printf("1. Subtraction\n");
+	printf("2. Multiplication\n");
+	printf("3. Division\n");
+	printf("4. Exit\n");
 	printf("\n\n");
-	printf("Enter the Number for the Operator : \n");
+	printf("Enter the Number for the Operator: \n");
 }
 
-// Function for Calculating Results
-void  calc(int a, int b, int operatorselection)
-{
-	int result = 0;
-	double div = 0; 
-
-	// Switch Statement
-	switch (operatorselection) {
-		case 1:
-			result = a + b;
-			printf("%d\n", result);
-			break;
-		case 2:
-			result = a - b;
-			printf("%d\n", result);
-			break;
-		case 3:
-			result = a * b;
-			printf("%d\n", result);
-			break;
-		case 4:
-			div = (double)a / b;
-			printf("0.2f\n", div);
-			break; 
-		default: 
-			break; 
-	}
-}
-
-// Main Function
+// Main Function 
 int main()
 {
-	// Variables and Initialization 
-	// Added New Variables 
-	int a, b; 
+	int a, b, choice, result;
+	int (*ope[4])(int, int);
+	ope[0] = sum;
+	ope[1] = sub;
+	ope[2] = mult;
+	ope[3] = div;
 	int solution, userInput;
-	int operationselection;
 	printf("Enter Two Numbers: \n");
 	printf("a = ");
 	scanf_s("%d", &a);
 	printf("b = ");
 	scanf_s("%d", &b);
 
-	// Do While Loop 
-	do 
+	// Do While Loop
+	do
 	{
 		menu();
-		scanf_s("%d", &operationselection);
+		scanf_s("%d", &choice);
 		printf("\n");
-		printf("Solution: ");
-		calc(a, b, operationselection);
-		printf("\nAgain? No, enter 5 for exit!\n");
+		result = ope[choice](a, b);
+		printf("Solution: %d\n", result);
+		printf("\nAgain? No, enter 4 for exit!\n");
 		scanf_s("%d", &userInput);
-	} while (userInput != 5); // I changed the while loop expression to != 5 because this will allow the program to exit when the user enters 5. 
+	} while (userInput != 4);
 
 	return 0;
+}
+
+int sum(int a, int b)
+{
+	return(a + b);
+	printf("%d\n", a + b);
+}
+int sub(int a, int b)
+{
+	return(a - b);
+	printf("%d\n", a - b);
+}
+int mult(int a, int b)
+{
+	return(a * b);
+	printf("%d\n", a * b);
+}
+int div(int a, int b)
+{
+	return(a / b);
+	printf("%d\n", a / b);
 }
 
