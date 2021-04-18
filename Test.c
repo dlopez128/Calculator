@@ -10,13 +10,13 @@
 struct variables {
 	int a;
 	int b;
-}; int(*ope[4]);
+} results;
 
-// Function Prototypes 
-void add(int num1, int num2);
-void sub(int num1, int num2);
-void mult(int num1, int num2);
-void div(int num1, int num2);
+// Function Prototypes
+void addition(int num1, int num2);
+void subtraction(int num1, int num2);
+void multiply(int num1, int num2);
+void division(int num1, int num2);
 
 // Function for Displaying the Menu
 void menu()
@@ -30,22 +30,20 @@ void menu()
 	printf("Enter the Number for the Operator: \n");
 }
 
-// Main Function 
+// Main Function
 int main()
 {
-	struct variables* variablesPtr, (*ope[4]);
-	variablesPtr = &ope[4];
-	ope[0] = add;
-	ope[1] = sub;
-	ope[2] = mult;
-	ope[3] = div;
-	int a, b, choice, result;
-	int solution, userInput;
-	printf("Enter Two Numbers: \n");
+	int (*ope[4])(int, int);
+	ope[0] = addition;
+	ope[1] = subtraction;
+	ope[2] = multiply;
+	ope[3] = division;
+	int choice, result;
+	int userInput;
 	printf("a = ");
-	scanf_s("%d", &a);
+	scanf_s("%d", &results.a);
 	printf("b = ");
-	scanf_s("%d", &b);
+	scanf_s("%d", &results.b);
 
 	// Do While Loop
 	do
@@ -53,7 +51,7 @@ int main()
 		menu();
 		scanf_s("%d", &choice);
 		printf("\n");
-		result = ope[choice];
+		result = ope[choice](results.a, &results.b);
 		printf("Solution: %d\n", result);
 		printf("\nAgain? No, enter 4 for exit!\n");
 		scanf_s("%d", &userInput);
@@ -62,29 +60,25 @@ int main()
 	return 0;
 }
 
-void add(int a, int b)
+// Function Declarations
+void addition(int a, int b)
 {
-	return(a + b);
-	printf("%d\n", a + b);
+	return(results.a + results.b);
+	printf("%d", results.a + results.b);
 }
-void sub(int a, int b)
+void subtraction(int a, int b)
 {
-	return(a - b);
-	printf("%d\n", a - b);
+	return(results.a - results.b);
+	printf("%d", results.a - results.b);
 }
-void mult(int a, int b)
+void multiply(int a, int b)
 {
-	return(a * b);
-	printf("%d\n", a * b);
+	return(results.a * results.b);
+	printf("%d", results.a * results.b);
 }
-void div(int a, int b)
+void division(int a, int b)
 {
-	// If-Else Statement 
-	if (b != 0) {
-		return(a / b);
-	}
-	else {
-		return 0;
-	}
+	return(results.a / results.b);
+	printf("%d", results.a / results.b);
 }
 
