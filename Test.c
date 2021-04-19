@@ -1,9 +1,3 @@
-// Includes a do while Loop. 
-// Includes function. 
-// Includes array and function pointer. 
-// Includes structure.
-// DOESN'T PRINT CORRECT RESULTS!
-
 #include <stdio.h>
 
 // Structure 
@@ -15,7 +9,7 @@ struct variables {
 // Function Prototypes
 void addition(int num1, int num2);
 void subtraction(int num1, int num2);
-void multiply(int num1, int num2);
+void multiplication(int num1, int num2);
 void division(int num1, int num2);
 
 // Function for Displaying the Menu
@@ -36,7 +30,7 @@ int main()
 	int (*ope[4])(int, int);
 	ope[0] = addition;
 	ope[1] = subtraction;
-	ope[2] = multiply;
+	ope[2] = multiplication;
 	ope[3] = division;
 	int choice, result;
 	int userInput;
@@ -51,10 +45,17 @@ int main()
 		menu();
 		scanf_s("%d", &choice);
 		printf("\n");
-		result = ope[choice](results.a, &results.b);
+		result = ope[choice](&results.a, &results.b);
 		printf("Solution: %d\n", result);
-		printf("\nAgain? No, enter 4 for exit!\n");
-		scanf_s("%d", &userInput);
+		printf("\nAgain? No, enter 4 for exit! Enter 5 to continue.\n");
+		scanf_s("%d", &userInput); 
+		if (userInput == 4) {
+			break; }
+
+		printf("\na = ");
+		scanf_s("%d", &results.a);
+		printf("b = ");
+		scanf_s("%d", &results.b);
 	} while (userInput != 4);
 
 	return 0;
@@ -71,14 +72,19 @@ void subtraction(int a, int b)
 	return(results.a - results.b);
 	printf("%d", results.a - results.b);
 }
-void multiply(int a, int b)
+void multiplication(int a, int b)
 {
 	return(results.a * results.b);
 	printf("%d", results.a * results.b);
 }
 void division(int a, int b)
-{
-	return(results.a / results.b);
-	printf("%d", results.a / results.b);
+{ 
+	// If-Else Statement
+	if (results.b != 0) {
+		return(results.a / results.b);
+	}
+	else {
+		return 0; 
+	}
 }
 
