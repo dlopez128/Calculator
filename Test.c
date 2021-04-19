@@ -27,7 +27,7 @@ void menu()
 // Main Function
 int main()
 {
-	int (*ope[4])(int, int);
+	int (*ope[4])(int, int); // Pointer and Array 
 	ope[0] = addition;
 	ope[1] = subtraction;
 	ope[2] = multiplication;
@@ -49,10 +49,10 @@ int main()
 		printf("Solution: %d\n", result);
 		printf("\nAgain? No, enter 4 for exit! Enter 5 to continue.\n");
 		scanf_s("%d", &userInput); 
-		if (userInput == 4) {
-			break; }
+		if (userInput == 4) { // If the number 4 is entered, the loop stops from running due to the break statement. 
+			break; } // Break Statement 
 
-		printf("\na = ");
+		printf("\na = "); // If the number 5 is entered, the loop will continue running and taking input for variables a and b. The results will then be printed, until the 4 is entered to stop the loop. 
 		scanf_s("%d", &results.a);
 		printf("b = ");
 		scanf_s("%d", &results.b);
